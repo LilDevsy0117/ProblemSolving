@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cmath>
+#include <map>
+#include <set>
+#include <algorithm>
+#include <ctime>
+
+using namespace std;
+
+
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+	
+	long long a,b,c;
+	cin>>a>>b>>c;
+	cout<<a+b+c;
+	
+	
+	return 0;
+}
