@@ -13,11 +13,12 @@ int solution(int a, int b, int c, int d) {
     v.push_back(c);
     v.push_back(d);
     for(int v_count : v){
+        # 4인경우
         if(count(v.begin(), v.end(), v_count) == 4){
             answer = 1111*v_count;
             flag = 1;
             break;
-        }else if(count(v.begin(), v.end(), v_count) == 3){
+        }else if(count(v.begin(), v.end(), v_count) == 3){ # 3인경우
             int dif_num;
             for(int v_c : v){
                 if(count(v.begin(), v.end(), v_c) == 1){
@@ -27,7 +28,7 @@ int solution(int a, int b, int c, int d) {
             answer = (10*v_count+dif_num)*(10*v_count+dif_num);
             flag = 1;
             break;
-        }else if(count(v.begin(), v.end(), v_count) == 2){
+        }else if(count(v.begin(), v.end(), v_count) == 2){ # 2인경우
             for(int v_c : v){
                 if(count(v.begin(), v.end(), v_c) == 1){
                     answer *= v_c;
@@ -40,7 +41,7 @@ int solution(int a, int b, int c, int d) {
             }
             flag = 1;
             break;
-        }else{
+        }else{ # 1인경우
             if(v_count < min_number) min_number = v_count;
         }
     }
