@@ -4,10 +4,9 @@
 using namespace std;
 
 vector<int> v;
-int sum = 0;
 int t;
 int ans = 0;
-void go(int z){
+void go(int z, int sum){
     if(z == v.size()){
         if(t == sum){
             ans ++;
@@ -15,12 +14,8 @@ void go(int z){
         return;
     }
     
-    sum += v[z];
-    go(z+1);
-    sum -= v[z];
-    sum -= v[z];
-    go(z+1);
-    sum += v[z];
+    go(z+1, sum +v[z]);
+    go(z+1, sum -= v[z]);
 }
 
 int solution(vector<int> numbers, int target) {
@@ -28,7 +23,7 @@ int solution(vector<int> numbers, int target) {
     
     v = numbers;
     t = target;
-    go(0);
+    go(0, 0);
     
     return ans;
 }
