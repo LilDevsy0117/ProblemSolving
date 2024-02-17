@@ -9,6 +9,8 @@ vector<int> solution(vector<vector<int>> score) {
     for(int i = 0; i <score.size(); i++){
         average.push_back(score[i][0] + score[i][1]);
     }
+
+    // 등수 매길때 자기보다 앞 등수인 사람만 count 하면 됨
     for(int i = 0; i<average.size(); i++){
         int grade = 1;
         for(int j = 0; j<average.size(); j++){
