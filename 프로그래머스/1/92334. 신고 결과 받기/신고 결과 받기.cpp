@@ -8,8 +8,10 @@ using namespace std;
 
 vector<int> solution(vector<string> id_list, vector<string> report, int k) {
     vector<int> answer(id_list.size());
+    
     map<string, int> m;
     map<string, int> idx;
+    
     for(int i = 0; i<id_list.size(); i++){
         m.insert({id_list[i], 0});
         idx.insert({id_list[i], i});
