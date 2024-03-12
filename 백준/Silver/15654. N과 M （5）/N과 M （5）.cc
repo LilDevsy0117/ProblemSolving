@@ -14,8 +14,10 @@
 using namespace std;
 
 int n, m;
-vector<int> k;
+int MAX = 8;
+vector<int> k(MAX);
 vector<int> v;
+vector<bool> visited(MAX);
 void go(int z)
 {
     if (z == m)
@@ -29,11 +31,12 @@ void go(int z)
     }
     for (int i = 0; i < n; i++)
     {
-        if (find(k.begin(), k.end(), v[i]) == k.end())
+        if (!visited[i])
         {
-            k.push_back(v[i]);
+            visited[i] = true;
+            k[z] = v[i];
             go(z + 1);
-            k.pop_back();
+            visited[i] = false;
         }
     }
 }
@@ -46,11 +49,10 @@ int main()
 
     cin >> n >> m;
 
+    v.resize(n);
     for (int i = 0; i < n; i++)
     {
-        int x;
-        cin >> x;
-        v.push_back(x);
+        cin >> v[i];
     }
     sort(v.begin(), v.end());
     go(0);
