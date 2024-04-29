@@ -8,7 +8,10 @@ int solution(vector<int> numbers, int k) {
     int a = 1;
     while(a < k){
         answer += 2;
-        answer %= numbers.size();
+        if(answer >= numbers.size()){
+            answer -= numbers.size();
+        }
+        
         a++;
     }
 
