@@ -35,6 +35,7 @@ int main()
 		int cur = Q.top().second;
 		int curD = Q.top().first;
 		Q.pop();
+		if (curD > dist[cur]) continue;
 		for (auto it : edge[cur])
 		{
 			int nextD = it.first;
